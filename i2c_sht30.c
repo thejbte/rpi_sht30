@@ -1,3 +1,10 @@
+/**
+*@file i2c_sht30.c
+*@brief example sht30 with rpi and bcm2835
+*@author Julian Bustamante
+*@date 12-08-2021
+*/
+
 
 #include <bcm2835.h>
 #include <stdio.h>
@@ -98,7 +105,7 @@ int main(int argc, char **argv) {
 
   void Read_I2C(uint8_t Address, void *Data, uint8_t amount, uint8_t Sizereg) {
 	  uint8_t *DatatoSend = (uint8_t *)Data;
-	  uint16_t Bytes;
+          uint16_t Bytes;
     bcm2835_i2c_setSlaveAddress(Address);
     bcm2835_i2c_write(DatatoSend,Sizereg);
     usleep(0.1*1E6);/*without this it doesn't work*/
